@@ -1,6 +1,7 @@
 package studentnetwork.android.com.studentnetwork.bo;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private int id;
@@ -16,6 +17,29 @@ public class User {
     private String largePictureUrl;
     private String type;
     private String gender;
+    private List<UserMedia> userMediaList;
+    private List<UserLink> userLinkList;
+    private List<School> schoolList;
+    private List<Content> contentList;
+
+    public User() {
+    }
+
+    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date registerDate, Date birthDate, String pictureUrl, String smallPictureUrl, String largePictureUrl, String type, String gender) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.aboutMe = aboutMe;
+        this.registerDate = registerDate;
+        this.birthDate = birthDate;
+        this.pictureUrl = pictureUrl;
+        this.smallPictureUrl = smallPictureUrl;
+        this.largePictureUrl = largePictureUrl;
+        this.type = type;
+        this.gender = gender;
+    }
 
     public int getId() {
         return id;
@@ -119,5 +143,60 @@ public class User {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public List<UserMedia> getUserMediaList() {
+        return userMediaList;
+    }
+
+    public void setUserMediaList(List<UserMedia> userMediaList) {
+        this.userMediaList = userMediaList;
+    }
+
+    public List<UserLink> getUserLinkList() {
+        return userLinkList;
+    }
+
+    public void setUserLinkList(List<UserLink> userLinkList) {
+        this.userLinkList = userLinkList;
+    }
+
+    public List<School> getSchoolList() {
+        return schoolList;
+    }
+
+    public void setSchoolList(List<School> schoolList) {
+        this.schoolList = schoolList;
+    }
+
+    public List<Content> getContentList() {
+        return contentList;
+    }
+
+    public void setContentList(List<Content> contentList) {
+        this.contentList = contentList;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", aboutMe='" + aboutMe + '\'' +
+                ", registerDate=" + registerDate +
+                ", birthDate=" + birthDate +
+                ", pictureUrl='" + pictureUrl + '\'' +
+                ", smallPictureUrl='" + smallPictureUrl + '\'' +
+                ", largePictureUrl='" + largePictureUrl + '\'' +
+                ", type='" + type + '\'' +
+                ", gender='" + gender + '\'' +
+                ", userMediaList=" + userMediaList +
+                ", userLinkList=" + userLinkList +
+                ", schoolList=" + schoolList +
+                ", contentList=" + contentList +
+                '}';
     }
 }
