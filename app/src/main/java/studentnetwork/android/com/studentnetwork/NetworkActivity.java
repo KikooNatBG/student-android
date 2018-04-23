@@ -3,6 +3,7 @@ package studentnetwork.android.com.studentnetwork;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,12 +20,6 @@ import studentnetwork.android.com.studentnetwork.bo.User;
 
 public class NetworkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private EditText txtNom;
-    private EditText txtPrenom;
-    private EditText txtMail;
-    private EditText txtPassword;
-    private EditText txtPasswordConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +45,6 @@ public class NetworkActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        txtNom = (EditText) findViewById(R.id.register_txt_nom);
-        txtPrenom = (EditText) findViewById(R.id.register_txt_prenom);
-        txtMail = (EditText) findViewById(R.id.register_txt_mail);
-        txtPassword = (EditText) findViewById(R.id.register_txt_password);
-        txtPasswordConfirm = (EditText) findViewById(R.id.register_txt_password_confirm);
     }
 
     @Override
@@ -120,7 +105,7 @@ public class NetworkActivity extends AppCompatActivity
     }
 
     public void onClickRegister(View view) {
-        UserRegisterService service = new UserRegisterService(view);
-        service.validate();
+        UserRegisterService service = new UserRegisterService(this);
+        User user = service.validate();
     }
 }
