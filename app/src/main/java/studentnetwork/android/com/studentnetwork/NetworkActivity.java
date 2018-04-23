@@ -120,6 +120,7 @@ public class NetworkActivity extends AppCompatActivity
     }
 
     public void onClickRegister(View view) {
-        UserRegisterService.validate(view);
+        UserRegisterService service = new UserRegisterService(view);
+        service.validate();
     }
 }
