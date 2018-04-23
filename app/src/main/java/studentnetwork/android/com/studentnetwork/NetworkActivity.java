@@ -107,5 +107,8 @@ public class NetworkActivity extends AppCompatActivity
     public void onClickRegister(View view) {
         UserRegisterService service = new UserRegisterService(this);
         User user = service.validate();
+        if(user != null){
+            //Traitement à définir
+        }
     }
 }

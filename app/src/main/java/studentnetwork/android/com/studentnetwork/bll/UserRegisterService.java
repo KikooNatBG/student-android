@@ -9,14 +9,14 @@ import studentnetwork.android.com.studentnetwork.bo.User;
 
 public class UserRegisterService {
     private static final java.lang.CharSequence NOM_EMPTY = "Le Nom est obligatoire";
-    private static final java.lang.CharSequence PRENOM_EMPTY = "Le Prenom est obligatoire";
+    private static final java.lang.CharSequence PRENOM_EMPTY = "Le Prénom est obligatoire";
     private static final java.lang.CharSequence MAIL_EMPTY = "L'Email est obligatoire";
     private static final java.lang.CharSequence MAIL_EXIST = "Cet Email est déja associé à un compte";
     private static final java.lang.CharSequence MAIL_INVALID = "L'Email doit être valide";
     private static final java.lang.CharSequence PASSWORD_EMPTY = "Le Mot de Passe est obligatoire";
     private static final java.lang.CharSequence PASSWORD_MIN_CONSTRAINT = "Le Mot de Passe doit contenir au moins 6 caractères";
     private static final java.lang.CharSequence PASSWORD_SAME_CONSTRAINT = "Le Mot de Passe doit être identique";
-    
+
     private EditText txtNom;
     private EditText txtPrenom;
     private EditText txtMail;
@@ -83,6 +83,6 @@ public class UserRegisterService {
             user.setPassword(inputToString(txtPassword));
             //UserService.create(user)
         }
-        return user;
+        return ok ? user : null;
     }
 }
