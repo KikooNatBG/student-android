@@ -12,9 +12,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+
+import studentnetwork.android.com.studentnetwork.bll.UserRegisterService;
+import studentnetwork.android.com.studentnetwork.bo.User;
 
 public class NetworkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private EditText txtNom;
+    private EditText txtPrenom;
+    private EditText txtMail;
+    private EditText txtPassword;
+    private EditText txtPasswordConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,16 @@ public class NetworkActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        txtNom = (EditText) findViewById(R.id.register_txt_nom);
+        txtPrenom = (EditText) findViewById(R.id.register_txt_prenom);
+        txtMail = (EditText) findViewById(R.id.register_txt_mail);
+        txtPassword = (EditText) findViewById(R.id.register_txt_password);
+        txtPasswordConfirm = (EditText) findViewById(R.id.register_txt_password_confirm);
     }
 
     @Override
@@ -97,5 +117,9 @@ public class NetworkActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void onClickRegister(View view) {
+        UserRegisterService.validate(view);
     }
 }
