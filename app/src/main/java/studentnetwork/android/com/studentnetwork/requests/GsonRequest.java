@@ -1,4 +1,4 @@
-package com.qrouet.volleyjson.volley;
+package studentnetwork.android.com.studentnetwork.requests;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -16,6 +16,7 @@ import java.util.Map;
  * Created by quentin for VolleyJSON on 18/04/2018.
  */
 public class GsonRequest<T> extends Request<T> {
+    private static String BASE_URL = "http://10.147.200.10:8080/api/";
     private final Gson gson = new Gson();
     private final Class<T> clazz;
     private final Map<String, String> headers;
@@ -29,8 +30,8 @@ public class GsonRequest<T> extends Request<T> {
      * @param headers Map of request headers
      */
     public GsonRequest(String url, Class<T> clazz, Map<String, String> headers,
-                       Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(Method.GET, url, errorListener);
+                       Response.Listener<T> listener, Response.ErrorListener errorListener, int method) {
+        super(method, BASE_URL + url, errorListener);
         this.clazz = clazz;
         this.headers = headers;
         this.listener = listener;

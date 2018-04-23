@@ -75,15 +75,4 @@ public class UserRegisterService {
             txtPasswordConfirm.setError(PASSWORD_SAME_CONSTRAINT);
         }
     }
-
-    public static boolean validate() {
-        boolean ok = false;
-        if (user != null && password != null) {
-            boolean exist = false; //!UserService.getOneByEmail(user.getEmail())
-            if (exist) {
-
-            }
-        }
-        return ok;
-    }
 }
