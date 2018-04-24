@@ -2,7 +2,6 @@ package studentnetwork.android.com.studentnetwork.bll;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.util.Patterns;
 import android.widget.EditText;
@@ -11,21 +10,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpResponse;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import studentnetwork.android.com.studentnetwork.LoginActivity;
-import studentnetwork.android.com.studentnetwork.NetworkActivity;
 import studentnetwork.android.com.studentnetwork.R;
-import studentnetwork.android.com.studentnetwork.SplashScreen;
 import studentnetwork.android.com.studentnetwork.bo.CustomVolleyError;
 import studentnetwork.android.com.studentnetwork.bo.User;
 import studentnetwork.android.com.studentnetwork.requests.GsonRequest;
@@ -52,7 +43,6 @@ public class UserRegisterService {
     private EditText txtMail;
     private EditText txtPassword;
     private EditText txtPasswordConfirm;
-    private User user;
 
     public UserRegisterService(Activity activity) {
         txtNom = activity.findViewById(R.id.register_txt_nom);
@@ -61,14 +51,6 @@ public class UserRegisterService {
         txtPassword = activity.findViewById(R.id.register_txt_password);
         txtPasswordConfirm = activity.findViewById(R.id.register_txt_password_confirm);
         listener = (UserRegisterListener) activity;
-    }
-
-    private String inputToString(EditText txt) {
-        return txt.getText().toString();
-    }
-
-    private boolean isEmpty(EditText txt) {
-        return inputToString(txt).isEmpty();
     }
 
     private void setError(VolleyError error) {
@@ -87,29 +69,29 @@ public class UserRegisterService {
 
     private boolean isOk() {
         boolean ok = true;
-        if (isEmpty(txtNom)) {
+        if (Utils.isEmpty(txtNom)) {
             txtNom.setError(NOM_EMPTY);
             ok = false;
         }
-        if (isEmpty(txtPrenom)) {
+        if (Utils.isEmpty(txtPrenom)) {
             txtPrenom.setError(PRENOM_EMPTY);
             ok = false;
         }
-        if (isEmpty(txtMail)) {
+        if (Utils.isEmpty(txtMail)) {
             txtMail.setError(MAIL_EMPTY);
             ok = false;
 
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(inputToString(txtMail)).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(Utils.inputToString(txtMail)).matches()) {
             txtMail.setError(MAIL_INVALID);
             ok = false;
         }
-        if (isEmpty(txtPassword)) {
+        if (Utils.isEmpty(txtPassword)) {
             txtPassword.setError(PASSWORD_EMPTY);
             ok = false;
-        } else if (inputToString(txtPassword).length() < 6) {
+        } else if (Utils.inputToString(txtPassword).length() < 6) {
             txtPassword.setError(PASSWORD_MIN_CONSTRAINT);
             ok = false;
-        } else if (!inputToString(txtPassword).equals(inputToString(txtPasswordConfirm))) {
+        } else if (!Utils.inputToString(txtPassword).equals(Utils.inputToString(txtPasswordConfirm))) {
             txtPasswordConfirm.setError(PASSWORD_SAME_CONSTRAINT);
             ok = false;
         }
@@ -118,17 +100,17 @@ public class UserRegisterService {
 
     public void validate(Context context) {
         boolean ok = isOk();
-        user = new User();
+        User user = new User();
         if (ok) {
             RequestQueue queueVolley = Volley.newRequestQueue(context);
             Map<String, String> headers = new HashMap<>();
             headers.put("Content-Type", "application/json");
             headers.put("Authorization", "Bearer " + TokenService.TOKEN);
             Log.d(TAG, headers.toString());
-            user.setLastName(inputToString(txtNom));
-            user.setFirstName(inputToString(txtPrenom));
-            user.setEmail(inputToString(txtMail));
-            user.setPassword(inputToString(txtPassword));
+            user.setLastName(Utils.inputToString(txtNom));
+            user.setFirstName(Utils.inputToString(txtPrenom));
+            user.setEmail(Utils.inputToString(txtMail));
+            user.setPassword(Utils.inputToString(txtPassword));
             user.setUserType("STUDENT");
             user.setGender("MALE");
             GsonRequest<User> createUser = new GsonRequest<>(

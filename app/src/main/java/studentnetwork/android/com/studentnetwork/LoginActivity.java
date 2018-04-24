@@ -4,27 +4,34 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 
-/**
- * Created by Administrateur on 23/04/2018.
- */
+import studentnetwork.android.com.studentnetwork.bll.UserLoginService;
+import studentnetwork.android.com.studentnetwork.bo.User;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements UserLoginService.UserLoginListener{
+    private static final String TAG = "LoginActivity => ";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
     }
 
     public void onClickLogin() {
-        // GSON REQUEST
+        UserLoginService service = new UserLoginService(this);
+        service.validate(this);
     }
 
     public void onClickRegisterInLogin(View view) {
         Intent i = new Intent(LoginActivity.this, NetworkActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onResult(User user) {
+        Log.d(TAG,user.toString());
     }
 }
