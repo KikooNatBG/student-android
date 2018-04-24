@@ -23,5 +23,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_key">userKey</string>
+    <string name="user_id_key">id</string>
+    <string name="user_firstName_key">firstName</string>
+    <string name="user_lastName_key">lastName</string>
+    <string name="user_email_key">email</string>
+    <string name="user_password_key">password</string>
+    <string name="user_aboutMe_key">aboutMe</string>
+    <string name="user_registerDate_key">registerDate</string>
+    <string name="user_birthDate_key">birthDate</string>
+    <string name="user_pictureUrl_key">pictureUrl</string>
+    <string name="user_smallPictureUrl_key">smallPictureUrl</string>
+    <string name="user_largePictureUrl_key">largePictureUrl</string>
+    <string name="user_userType_key">userType</string>
+    <string name="user_gender_key">gender</string>
 
 </resources>
