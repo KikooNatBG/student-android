@@ -15,7 +15,7 @@ public class User {
     private String pictureUrl;
     private String smallPictureUrl;
     private String largePictureUrl;
-    private String type;
+    private String userType;
     private String gender;
     private List<UserMedia> userMediaList;
     private List<UserLink> userLinkList;
@@ -25,7 +25,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date registerDate, Date birthDate, String pictureUrl, String smallPictureUrl, String largePictureUrl, String type, String gender) {
+    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date registerDate, Date birthDate, String pictureUrl, String smallPictureUrl, String largePictureUrl, String userType, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -37,7 +37,7 @@ public class User {
         this.pictureUrl = pictureUrl;
         this.smallPictureUrl = smallPictureUrl;
         this.largePictureUrl = largePictureUrl;
-        this.type = type;
+        this.userType = userType;
         this.gender = gender;
     }
 
@@ -129,12 +129,12 @@ public class User {
         this.largePictureUrl = largePictureUrl;
     }
 
-    public String getType() {
-        return type;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getGender() {
@@ -191,7 +191,7 @@ public class User {
                 ", pictureUrl='" + pictureUrl + '\'' +
                 ", smallPictureUrl='" + smallPictureUrl + '\'' +
                 ", largePictureUrl='" + largePictureUrl + '\'' +
-                ", type='" + type + '\'' +
+                ", type='" + userType + '\'' +
                 ", gender='" + gender + '\'' +
                 ", userMediaList=" + userMediaList +
                 ", userLinkList=" + userLinkList +

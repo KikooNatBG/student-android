@@ -13,13 +13,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+import studentnetwork.android.com.studentnetwork.bll.TokenService;
 import studentnetwork.android.com.studentnetwork.bll.UserRegisterService;
 import studentnetwork.android.com.studentnetwork.bo.User;
 
 public class NetworkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG = "NetworkActivity => ";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,9 @@ public class NetworkActivity extends AppCompatActivity
         setContentView(R.layout.activity_network);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        RequestQueue queueVolley = Volley.newRequestQueue(this);
+        queueVolley.add(TokenService.initToken());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -106,9 +115,9 @@ public class NetworkActivity extends AppCompatActivity
 
     public void onClickRegister(View view) {
         UserRegisterService service = new UserRegisterService(this);
-        User user = service.validate();
+        User user = service.validate(this);
         if(user != null){
-            //Traitement à définir
+            Log.d(TAG, user.toString());
         }
     }
 }
