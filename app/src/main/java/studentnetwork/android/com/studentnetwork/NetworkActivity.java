@@ -14,10 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-
-import studentnetwork.android.com.studentnetwork.bll.TokenService;
 import studentnetwork.android.com.studentnetwork.bll.UserRegisterService;
 import studentnetwork.android.com.studentnetwork.bo.User;
 
@@ -32,9 +28,6 @@ public class NetworkActivity extends AppCompatActivity
         setContentView(R.layout.activity_network);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        RequestQueue queueVolley = Volley.newRequestQueue(this);
-        queueVolley.add(TokenService.initToken());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

@@ -10,7 +10,7 @@ import android.view.View;
 import studentnetwork.android.com.studentnetwork.bll.UserLoginService;
 import studentnetwork.android.com.studentnetwork.bo.User;
 
-public class LoginActivity extends Activity implements UserLoginService.UserLoginListener{
+public class LoginActivity extends Activity implements UserLoginService.UserLoginListener {
     private static final String TAG = "LoginActivity => ";
 
     @Override
@@ -20,18 +20,18 @@ public class LoginActivity extends Activity implements UserLoginService.UserLogi
 
     }
 
-    public void onClickLogin() {
-        UserLoginService service = new UserLoginService(this);
-        service.validate(this);
-    }
-
     public void onClickRegisterInLogin(View view) {
         Intent i = new Intent(LoginActivity.this, NetworkActivity.class);
         startActivity(i);
     }
 
+    public void onClickLogin(View view) {
+        UserLoginService service = new UserLoginService(this);
+        service.validate(this);
+    }
+
     @Override
     public void onResult(User user) {
-        Log.d(TAG,user.toString());
+        Log.d(TAG, user.toString());
     }
 }

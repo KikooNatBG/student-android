@@ -6,9 +6,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 
-/**
- * Created by Administrateur on 23/04/2018.
- */
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+import studentnetwork.android.com.studentnetwork.bll.TokenService;
 
 public class SplashScreen extends Activity{
     private static int SPLASH_TIME = 3000;
@@ -18,6 +19,9 @@ public class SplashScreen extends Activity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        RequestQueue queueVolley = Volley.newRequestQueue(this);
+        queueVolley.add(TokenService.initToken());
 
         new Handler().postDelayed(new Runnable() {
             @Override

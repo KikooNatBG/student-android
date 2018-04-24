@@ -56,7 +56,7 @@ public class UserRegisterService {
     private void setError(VolleyError error) {
         Gson gson = new Gson();
         CustomVolleyError customError = gson.fromJson(error.getMessage(), CustomVolleyError.class);
-        String errorKey = customError.getErrorKey();
+        String errorKey = customError != null ? customError.getTitle() : "";
         switch (errorKey) {
             case "emailexists":
                 txtMail.setError(MAIL_EXIST);
@@ -123,7 +123,7 @@ public class UserRegisterService {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d(TAG, error.getMessage());
+                    Log.d(TAG, error.getMessage() != null ? error.getMessage() : error.toString());
                     setError(error);
                 }
             }, Request.Method.POST, user

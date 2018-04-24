@@ -28,6 +28,7 @@ public class UserLoginService {
 
     private static final String MAIL_INVALID = "Email Incorrect";
     private static final String PASSWORD_INVALID = "Mot de Passe Incorrect";
+    private static final String LOGIN_INVALID = "Email ou Mot de Passe Incorrect";
     private static final String TAG = "UserLoginService =>";
 
     private UserLoginListener listener;
@@ -43,10 +44,11 @@ public class UserLoginService {
     private void setError(VolleyError error) {
         Gson gson = new Gson();
         CustomVolleyError customError = gson.fromJson(error.getMessage(), CustomVolleyError.class);
-        String errorKey = customError.getErrorKey();
+        String errorKey = customError != null ? customError.getTitle() : "";
         switch (errorKey) {
-            case "emailexists":
-                txtMail.setError(MAIL_INVALID);
+            case "Incorrect password":
+                txtMail.setError(LOGIN_INVALID);
+                txtPassword.setError(LOGIN_INVALID);
                 txtMail.requestFocus();
                 break;
             default:
@@ -57,6 +59,9 @@ public class UserLoginService {
     private boolean isOk() {
         boolean ok = true;
         if (Utils.isEmpty(txtMail)) {
+            txtMail.setError(MAIL_INVALID);
+            ok = false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(Utils.inputToString(txtMail)).matches()) {
             txtMail.setError(MAIL_INVALID);
             ok = false;
         }
@@ -79,7 +84,7 @@ public class UserLoginService {
             user.setEmail(Utils.inputToString(txtMail));
             user.setPassword(Utils.inputToString(txtPassword));
             GsonRequest<User> createUser = new GsonRequest<>(
-                    "kiuser/register", User.class, headers, new Response.Listener<User>() {
+                    "kiuser/login", User.class, headers, new Response.Listener<User>() {
                 @Override
                 public void onResponse(User response) {
                     Log.d(TAG, response != null ? response.toString() : "OK");
@@ -88,7 +93,7 @@ public class UserLoginService {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d(TAG, error.getMessage());
+                    Log.d(TAG, error.getMessage() != null ? error.getMessage() : error.toString());
                     setError(error);
                 }
             }, Request.Method.POST, user
