@@ -22,7 +22,7 @@ import studentnetwork.android.com.studentnetwork.bll.UserRegisterService;
 import studentnetwork.android.com.studentnetwork.bo.User;
 
 public class NetworkActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, UserRegisterService.UserRegisterListener {
 
     private static final String TAG = "NetworkActivity => ";
 
@@ -114,6 +114,13 @@ public class NetworkActivity extends AppCompatActivity
 
     public void onClickRegister(View view) {
         UserRegisterService service = new UserRegisterService(this);
-        service.validate(this, i);
+        service.validate(this);
+    }
+
+    @Override
+    public void onResult(User user) {
+        Intent i = new Intent(NetworkActivity.this, LoginActivity.class);
+        startActivity(i);
+        finish();
     }
 }

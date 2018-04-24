@@ -31,6 +31,11 @@ import studentnetwork.android.com.studentnetwork.bo.User;
 import studentnetwork.android.com.studentnetwork.requests.GsonRequest;
 
 public class UserRegisterService {
+
+    public interface UserRegisterListener {
+        void onResult(User user);
+    }
+
     private static final java.lang.CharSequence NOM_EMPTY = "Le Nom est obligatoire";
     private static final java.lang.CharSequence PRENOM_EMPTY = "Le Prénom est obligatoire";
     private static final java.lang.CharSequence MAIL_EMPTY = "L'Email est obligatoire";
@@ -41,6 +46,7 @@ public class UserRegisterService {
     private static final java.lang.CharSequence PASSWORD_SAME_CONSTRAINT = "Le Mot de Passe doit être identique";
     private static final String TAG = "UserRegisterService =>";
 
+    private UserRegisterListener listener;
     private EditText txtNom;
     private EditText txtPrenom;
     private EditText txtMail;
@@ -54,6 +60,7 @@ public class UserRegisterService {
         txtMail = activity.findViewById(R.id.register_txt_mail);
         txtPassword = activity.findViewById(R.id.register_txt_password);
         txtPasswordConfirm = activity.findViewById(R.id.register_txt_password_confirm);
+        listener = (UserRegisterListener) activity;
     }
 
     private String inputToString(EditText txt) {
@@ -109,7 +116,7 @@ public class UserRegisterService {
         return ok;
     }
 
-    public void validate(Context context, Intent i) {
+    public void validate(Context context) {
         boolean ok = isOk();
         user = new User();
         if (ok) {
@@ -129,7 +136,7 @@ public class UserRegisterService {
                 @Override
                 public void onResponse(User response) {
                     Log.d(TAG, response != null ? response.toString() : "OK");
-                    user=response;
+                    listener.onResult(response);
                 }
             }, new Response.ErrorListener() {
                 @Override
