@@ -1,9 +1,9 @@
 package studentnetwork.android.com.studentnetwork;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,7 +25,6 @@ public class NetworkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "NetworkActivity => ";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,9 +114,6 @@ public class NetworkActivity extends AppCompatActivity
 
     public void onClickRegister(View view) {
         UserRegisterService service = new UserRegisterService(this);
-        User user = service.validate(this);
-        if(user != null){
-            Log.d(TAG, user.toString());
-        }
+        service.validate(this, i);
     }
 }
