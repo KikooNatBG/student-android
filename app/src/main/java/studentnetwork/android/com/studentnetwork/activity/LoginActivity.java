@@ -1,4 +1,4 @@
-package studentnetwork.android.com.studentnetwork;
+package studentnetwork.android.com.studentnetwork.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 
+import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.bll.UserLoginService;
 import studentnetwork.android.com.studentnetwork.bo.User;
 

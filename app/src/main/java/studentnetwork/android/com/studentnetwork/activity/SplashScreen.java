@@ -1,4 +1,4 @@
-package studentnetwork.android.com.studentnetwork;
+package studentnetwork.android.com.studentnetwork.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
+import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.bll.TokenService;
 
 public class SplashScreen extends Activity{
