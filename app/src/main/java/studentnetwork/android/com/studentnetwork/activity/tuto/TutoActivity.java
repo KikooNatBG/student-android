@@ -1,5 +1,6 @@
 package studentnetwork.android.com.studentnetwork.activity.tuto;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,9 @@ import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 import java.util.ArrayList;
 
 import studentnetwork.android.com.studentnetwork.R;
+import studentnetwork.android.com.studentnetwork.activity.LoginActivity;
+import studentnetwork.android.com.studentnetwork.activity.NetworkActivity;
+import studentnetwork.android.com.studentnetwork.activity.RegisterActivity;
 import studentnetwork.android.com.studentnetwork.bll.SchoolService;
 import studentnetwork.android.com.studentnetwork.bo.School;
 
@@ -87,8 +91,13 @@ public class TutoActivity extends AppCompatActivity implements SchoolService.Sch
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                page += 1;
-                mViewPager.setCurrentItem(page, true);
+                if(page == indicators.length - 1) {
+                    Intent i = new Intent(TutoActivity.this, NetworkActivity.class);
+                    startActivity(i);
+                } else {
+                    page += 1;
+                    mViewPager.setCurrentItem(page, true);
+                }
             }
         });
 
@@ -106,7 +115,7 @@ public class TutoActivity extends AppCompatActivity implements SchoolService.Sch
 
                 updateIndicators(page);
 
-                nextButton.setVisibility(position == indicators.length - 1 ? View.GONE : View.VISIBLE);
+                //nextButton.setVisibility(position == indicators.length - 1 ? View.GONE : View.VISIBLE);
 
 
             }

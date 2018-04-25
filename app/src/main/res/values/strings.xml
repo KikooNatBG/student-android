@@ -44,5 +44,10 @@
     <string name="know_student_status">Tout savoir sur le statut étudiant</string>
     <string name="school">Ecole</string>
     <string name="city">Ville</string>
+    <string name="put_city_text">Je renseigne ma ville</string>
+    <string name="put_school_text">Je renseigne mon école</string>
+    <string name="finish">C\'est fini !</string>
+    <string name="welcome_student">Bienvenue sur ton réseau étudiant.</string>
+    <string name="finish_tuto_sentence">Découvre et propose tes bons plans, services, sorties, loisirs...</string>
 
 </resources>

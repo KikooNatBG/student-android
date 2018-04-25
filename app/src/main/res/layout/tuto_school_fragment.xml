@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoSchoolFragment">
 
+    <TextView
+        android:id="@+id/school_text_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/put_school_text"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/school_icn"
         android:layout_width="175dp"
@@ -13,7 +24,9 @@
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        android:src="@drawable/student300" />
+        android:src="@drawable/student300"
+        android:layout_below="@id/school_text_pager"
+        android:layout_margin="5dp"/>
 
     <com.toptoche.searchablespinnerlibrary.SearchableSpinner
         android:id="@+id/school_spinner"

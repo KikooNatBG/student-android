@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoEndFragment">
-
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment End"
-        android:textColor="@color/white"/>
-</android.support.constraint.ConstraintLayout>
+        android:orientation="vertical"
+        android:layout_margin="50dp">
+
+        <TextView
+            android:id="@+id/end_text_pagger"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/finish"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/end_text_pagger_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome_student"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_below="@+id/end_text_pagger"
+            android:layout_marginTop="20dp"/>
+
+
+        <TextView
+            android:id="@+id/end_text_pagger_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/finish_tuto_sentence"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+            android:layout_below="@id/end_text_pagger_2"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
