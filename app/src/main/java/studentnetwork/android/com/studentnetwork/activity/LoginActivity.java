@@ -37,6 +37,7 @@ public class LoginActivity extends Activity implements UserLoginService.UserLogi
     public void onResult(User user) {
         boolean authOk = user != null;
         Log.d(TAG, authOk ? user.toString() : "no user");
+        SharedPreferencesManager.getInstance(this).setUser(user);
         if (authOk) {
             boolean firstTime = user.getSchools() != null &&
                     (user.getSchools().size() == 0);
