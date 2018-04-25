@@ -43,7 +43,7 @@ public class TokenService {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d(TAG, error.getMessage());
+                Log.d(TAG, error.getMessage() != null ? error.getMessage() : error.toString());
             }
         }, Request.Method.POST, new Auth(TokenService.USERNAME,TokenService.PASSWORD,true)
         );
