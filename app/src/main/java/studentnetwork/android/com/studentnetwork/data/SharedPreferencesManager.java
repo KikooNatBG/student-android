@@ -35,7 +35,7 @@ public class SharedPreferencesManager {
     public void setUser(User user){
         SharedPreferences.Editor editor = sharedPref.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(user);
+        String json = user != null ? gson.toJson(user) : null;
         editor.putString("User", json);
         editor.commit();
     }

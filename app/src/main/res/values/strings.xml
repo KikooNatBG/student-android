@@ -37,5 +37,6 @@
     <string name="user_largePictureUrl_key">largePictureUrl</string>
     <string name="user_userType_key">userType</string>
     <string name="user_gender_key">gender</string>
+    <string name="deconnexion">Déconnexion</string>
 
 </resources>

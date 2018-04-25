@@ -1,5 +1,6 @@
 package studentnetwork.android.com.studentnetwork.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,34 +10,58 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import studentnetwork.android.com.studentnetwork.R;
+import studentnetwork.android.com.studentnetwork.bo.User;
+import studentnetwork.android.com.studentnetwork.data.SharedPreferencesManager;
 
 public class NetworkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "NetworkActivity => ";
+    private DrawerLayout drawer;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
+    private ImageView picture;
+    private TextView txtIdentity;
+    private TextView txtMail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_network);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_network);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View menuHeaderView = navigationView.getHeaderView(0);
+        picture = (ImageView) menuHeaderView.findViewById(R.id.menu_image);
+        txtIdentity = (TextView) menuHeaderView.findViewById(R.id.menu_name);
+        txtMail = (TextView) menuHeaderView.findViewById(R.id.menu_mail);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        User user = SharedPreferencesManager.getInstance(this).getUser();
+        String pictureUrl = user.getPictureUrl();
+        picture.setImageResource(pictureUrl != null  ? R.drawable.user_default : R.drawable.user_default);
+        txtIdentity.setText(user.getFirstName() + " " + user.getLastName());
+        txtMail.setText(user.getEmail());
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -84,9 +109,13 @@ public class NetworkActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_exit){
+            SharedPreferencesManager.getInstance(this).setUser(null);
+            Intent i = new Intent(NetworkActivity.this, LoginActivity.class);
+            startActivity(i);
+            finish();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
