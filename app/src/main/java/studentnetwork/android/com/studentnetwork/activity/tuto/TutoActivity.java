@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import studentnetwork.android.com.studentnetwork.R;
@@ -36,6 +38,16 @@ public class TutoActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private ImageButton nextButton;
+
+    ImageView zero, one, two,three;
+    ImageView[] indicators;
+    int lastLeftValue = 0;
+
+    static final String TAG = "PagerActivity";
+
+    int page = 0;   //  to track page position
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,20 +60,63 @@ public class TutoActivity extends AppCompatActivity {
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+        nextButton = (ImageButton) findViewById(R.id.intro_btn_next);
+
+        zero = (ImageView) findViewById(R.id.intro_indicator_0);
+        one = (ImageView) findViewById(R.id.intro_indicator_1);
+        two = (ImageView) findViewById(R.id.intro_indicator_2);
+        three = (ImageView) findViewById(R.id.intro_indicator_3);
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
+        indicators = new ImageView[]{zero, one, two,three};
+
+        mViewPager.setCurrentItem(page);
+        updateIndicators(page);
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                page += 1;
+                mViewPager.setCurrentItem(page, true);
+            }
+        });
+
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                page = position;
+
+                updateIndicators(page);
+
+                nextButton.setVisibility(position == indicators.length - 1 ? View.GONE : View.VISIBLE);
+
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
-//    void updateIndicators(int position) {
-//        for (int i = 0; i < indicators.length; i++) {
-//            indicators[i].setBackgroundResource(
-//                    i == position ? R.drawable.indicator_selected : R.drawable.indicator_unselected
-//            );
-//        }
-//    }
+    void updateIndicators(int position) {
+        for (int i = 0; i < indicators.length; i++) {
+            indicators[i].setBackgroundResource(
+                    i == position ? R.drawable.indicator_selected : R.drawable.indicator_unselected
+            );
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

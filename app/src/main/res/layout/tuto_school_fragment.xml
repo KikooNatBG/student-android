@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoSchoolFragment">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/school_icn"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        android:src="@drawable/student300" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/school_input_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="15dp"
+        android:layout_below="@id/school_icn"
+        android:alpha="0.5"
+        android:background="@drawable/roundedinput"
+        android:textColorHint="@color/colorPrimaryBlue"
+        app:errorEnabled="true">
+
+        <EditText
+            android:id="@+id/school_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/school"
+            android:inputType="textAutoComplete"
+            android:textColor="@android:color/white" />
+    </android.support.design.widget.TextInputLayout>
+</RelativeLayout>

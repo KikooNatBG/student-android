@@ -9,12 +9,26 @@
     tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoActivity"
     android:background="@color/colorPrimaryBlue">
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/student" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_below="@+id/title_bar"
+        />
+</RelativeLayout>
 
     <!-- divider -->
     <View
@@ -44,9 +58,32 @@
             <ImageView
                 android:id="@+id/intro_indicator_0"
                 android:layout_width="8dp"
-                android:layout_height="8dp" />
+                android:layout_height="8dp"
+                android:background="@color/white"
+                android:layout_margin="2dp"/>
 
-            <!-- Your other 2 indicators here -->
+            <ImageView
+                android:id="@+id/intro_indicator_1"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@color/white"
+                android:layout_margin="2dp"/>
+
+            <ImageView
+                android:id="@+id/intro_indicator_2"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@color/white"
+                android:layout_margin="2dp"/>
+
+            <ImageView
+                android:id="@+id/intro_indicator_3"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:background="@color/white"
+                android:layout_margin="2dp"/>
+
+
 
         </LinearLayout>
 

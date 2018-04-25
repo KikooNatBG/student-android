@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoEndFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragment End"
+        android:textColor="@color/white"/>
 </android.support.constraint.ConstraintLayout>

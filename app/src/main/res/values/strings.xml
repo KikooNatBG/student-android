@@ -38,5 +38,11 @@
     <string name="user_userType_key">userType</string>
     <string name="user_gender_key">gender</string>
     <string name="deconnexion">Déconnexion</string>
+    <string name="find_appartment">Trouver des logements</string>
+    <string name="find_travels">Chercher des trajets</string>
+    <string name="know_deals">Connaître tous les bons plans de ma ville</string>
+    <string name="know_student_status">Tout savoir sur le statut étudiant</string>
+    <string name="school">Ecole</string>
+    <string name="city">Ville</string>
 
 </resources>
