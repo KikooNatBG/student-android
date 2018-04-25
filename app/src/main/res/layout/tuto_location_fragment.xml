@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoSchoolActivity">
+    tools:context="studentnetwork.android.com.studentnetwork.activity.tuto.TutoLocationFragment">
 
 </android.support.constraint.ConstraintLayout>

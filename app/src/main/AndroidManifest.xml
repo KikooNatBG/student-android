@@ -29,10 +29,14 @@
             android:name=".activity.LoginActivity"
             android:label="@string/connection"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.tuto.TutoExplainActivity" />
-        <activity android:name=".activity.tuto.TutoSchoolActivity" />
-        <activity android:name=".activity.tuto.TutoLocationActivity" />
-        <activity android:name=".activity.tuto.TutoEndActivity"></activity>
+        <activity android:name=".activity.tuto.TutoExplainFragment" />
+        <activity android:name=".activity.tuto.TutoSchoolFragment" />
+        <activity android:name=".activity.tuto.TutoLocationFragment" />
+        <activity android:name=".activity.tuto.TutoEndActivity" />
+        <activity
+            android:name=".activity.tuto.TutoActivity"
+            android:label="@string/title_activity_tuto"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
