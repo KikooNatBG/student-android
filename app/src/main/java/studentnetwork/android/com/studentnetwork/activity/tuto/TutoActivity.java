@@ -42,8 +42,8 @@ public class TutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tuto);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -55,6 +55,13 @@ public class TutoActivity extends AppCompatActivity {
 
     }
 
+//    void updateIndicators(int position) {
+//        for (int i = 0; i < indicators.length; i++) {
+//            indicators[i].setBackgroundResource(
+//                    i == position ? R.drawable.indicator_selected : R.drawable.indicator_unselected
+//            );
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

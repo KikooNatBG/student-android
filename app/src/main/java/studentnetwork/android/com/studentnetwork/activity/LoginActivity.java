@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import studentnetwork.android.com.studentnetwork.R;
-import studentnetwork.android.com.studentnetwork.activity.tuto.TutoExplainActivity;
+import studentnetwork.android.com.studentnetwork.activity.tuto.TutoActivity;
 import studentnetwork.android.com.studentnetwork.bll.UserLoginService;
 import studentnetwork.android.com.studentnetwork.bo.User;
 import studentnetwork.android.com.studentnetwork.data.SharedPreferencesManager;
@@ -38,7 +38,7 @@ public class LoginActivity extends Activity implements UserLoginService.UserLogi
         Log.d(TAG, user.toString());
         SharedPreferencesManager.getInstance(this).setUser(user);
         Class clazz = user.getSchools().isEmpty() ?
-                TutoExplainActivity.class : NetworkActivity.class;
+                TutoActivity.class : NetworkActivity.class;
 
         Intent i = new Intent(LoginActivity.this, clazz);
         startActivity(i);
