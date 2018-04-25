@@ -11,7 +11,7 @@ public class User {
     private String password;
     private String aboutMe;
     private Date registerDate;
-    private Date birthDate;
+    private Date birthday;
     private String pictureUrl;
     private String smallPictureUrl;
     private String largePictureUrl;
@@ -19,13 +19,13 @@ public class User {
     private String gender;
     private List<UserMedia> userMediaList;
     private List<UserLink> userLinkList;
-    private List<School> schoolList;
+    private List<School> schools;
     private List<Content> contentList;
 
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date registerDate, Date birthDate, String pictureUrl, String smallPictureUrl, String largePictureUrl, String userType, String gender) {
+    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date registerDate, Date birthday, String pictureUrl, String smallPictureUrl, String largePictureUrl, String userType, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,7 +33,7 @@ public class User {
         this.password = password;
         this.aboutMe = aboutMe;
         this.registerDate = registerDate;
-        this.birthDate = birthDate;
+        this.birthday = birthday;
         this.pictureUrl = pictureUrl;
         this.smallPictureUrl = smallPictureUrl;
         this.largePictureUrl = largePictureUrl;
@@ -97,12 +97,12 @@ public class User {
         this.registerDate = registerDate;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getPictureUrl() {
@@ -161,12 +161,12 @@ public class User {
         this.userLinkList = userLinkList;
     }
 
-    public List<School> getSchoolList() {
-        return schoolList;
+    public List<School> getSchools() {
+        return schools;
     }
 
-    public void setSchoolList(List<School> schoolList) {
-        this.schoolList = schoolList;
+    public void setSchools(List<School> schools) {
+        this.schools = schools;
     }
 
     public List<Content> getContentList() {
@@ -187,7 +187,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", aboutMe='" + aboutMe + '\'' +
                 ", registerDate=" + registerDate +
-                ", birthDate=" + birthDate +
+                ", birthday=" + birthday +
                 ", pictureUrl='" + pictureUrl + '\'' +
                 ", smallPictureUrl='" + smallPictureUrl + '\'' +
                 ", largePictureUrl='" + largePictureUrl + '\'' +
@@ -195,7 +195,7 @@ public class User {
                 ", gender='" + gender + '\'' +
                 ", userMediaList=" + userMediaList +
                 ", userLinkList=" + userLinkList +
-                ", schoolList=" + schoolList +
+                ", schools=" + schools +
                 ", contentList=" + contentList +
                 '}';
     }
