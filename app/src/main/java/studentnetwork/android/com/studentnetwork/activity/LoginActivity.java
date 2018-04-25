@@ -35,13 +35,15 @@ public class LoginActivity extends Activity implements UserLoginService.UserLogi
 
     @Override
     public void onResult(User user) {
-        Log.d(TAG, user.toString());
-        SharedPreferencesManager.getInstance(this).setUser(user);
-        Class clazz = user.getSchools().isEmpty() ?
-                TutoActivity.class : NetworkActivity.class;
-
-        Intent i = new Intent(LoginActivity.this, clazz);
-        startActivity(i);
-        finish();
+        boolean authOk = user != null;
+        Log.d(TAG, authOk ? user.toString() : "no user");
+        if (authOk) {
+            boolean firstTime = user.getSchools() != null &&
+                    (user.getSchools().size() == 0);
+            Class activityClass = firstTime ? TutoActivity.class : NetworkActivity.class;
+            Intent i = new Intent(LoginActivity.this, activityClass);
+            startActivity(i);
+            finish();
+        }
     }
 }

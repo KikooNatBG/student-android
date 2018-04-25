@@ -21,10 +21,12 @@ import java.util.Map;
  * Created by quentin for VolleyJSON on 18/04/2018.
  */
 public class GsonRequestList<T> extends Request<T> {
+    private static String BASE_URL = "http://10.147.200.10:8080/api/";
     private final Gson gson = new Gson();
     private final Type type;
     private final Map<String, String> headers;
     private final Listener<T> listener;
+    private final int method;
 
     /**
      * Make a GET request and return a parsed object from JSON.
@@ -37,11 +39,12 @@ public class GsonRequestList<T> extends Request<T> {
                            Type type,
                            Map<String, String> headers,
                            Listener<T> listener,
-                           ErrorListener errorListener) {
-        super(Method.GET, url, errorListener);
+                           ErrorListener errorListener,int method) {
+        super(Method.GET, BASE_URL + url, errorListener);
         this.type = type;
         this.headers = headers;
         this.listener = listener;
+        this.method=method;
     }
 
     @Override

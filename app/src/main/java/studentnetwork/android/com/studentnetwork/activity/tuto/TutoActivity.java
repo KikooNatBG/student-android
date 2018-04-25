@@ -10,19 +10,27 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import studentnetwork.android.com.studentnetwork.R;
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
-public class TutoActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+import studentnetwork.android.com.studentnetwork.R;
+import studentnetwork.android.com.studentnetwork.bll.SchoolService;
+import studentnetwork.android.com.studentnetwork.bo.School;
+
+public class TutoActivity extends AppCompatActivity implements SchoolService.SchoolListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -40,7 +48,7 @@ public class TutoActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private ImageButton nextButton;
 
-    ImageView zero, one, two,three;
+    ImageView zero, one, two, three;
     ImageView[] indicators;
     int lastLeftValue = 0;
 
@@ -71,7 +79,7 @@ public class TutoActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        indicators = new ImageView[]{zero, one, two,three};
+        indicators = new ImageView[]{zero, one, two, three};
 
         mViewPager.setCurrentItem(page);
         updateIndicators(page);
@@ -185,6 +193,31 @@ public class TutoActivity extends AppCompatActivity {
                     return "END";
             }
             return null;
+        }
+    }
+
+    @Override
+    public void onResultOne(School school) {
+        //TODO
+    }
+
+    @Override
+    public void onFragmentResultList(ArrayList<School> schools, String fragment) {
+        Log.d(TAG, schools.toString());
+        if (fragment != null) {
+            switch (fragment) {
+                case TutoSchoolFragment.FRAGMENT_NAME:
+                    SearchableSpinner spinner = (SearchableSpinner) findViewById(R.id.school_spinner);
+                    ArrayAdapter<School> adapter = new ArrayAdapter<>(this,
+                            R.layout.searchable_spinner, schools);
+                    adapter.setDropDownViewResource(R.layout.searchable_spinner);
+                    spinner.setAdapter(adapter);
+                    spinner.setTitle("Sélectionner votre école");
+                    spinner.setPositiveButton("OK");
+                    break;
+                default:
+                    Log.d(TAG, "Fragment inconnu");
+            }
         }
     }
 }
