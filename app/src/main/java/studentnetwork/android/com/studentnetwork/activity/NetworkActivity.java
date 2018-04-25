@@ -1,21 +1,19 @@
 package studentnetwork.android.com.studentnetwork.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import studentnetwork.android.com.studentnetwork.R;
-import studentnetwork.android.com.studentnetwork.bll.UserRegisterService;
-import studentnetwork.android.com.studentnetwork.bo.User;
 
 public class NetworkActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, UserRegisterService.UserRegisterListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "NetworkActivity => ";
 
@@ -23,17 +21,17 @@ public class NetworkActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_network);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar)
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.setDrawerListener(toggle);
-//        toggle.syncState();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
 
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -91,17 +89,5 @@ public class NetworkActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    public void onClickRegister(View view) {
-        UserRegisterService service = new UserRegisterService(this);
-        service.validate(this);
-    }
-
-    @Override
-    public void onResult(User user) {
-        Intent i = new Intent(NetworkActivity.this, LoginActivity.class);
-        startActivity(i);
-        finish();
     }
 }

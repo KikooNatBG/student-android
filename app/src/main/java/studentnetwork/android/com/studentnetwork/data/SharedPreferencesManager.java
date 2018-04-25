@@ -10,16 +10,14 @@ import java.util.Date;
 import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.bo.User;
 
-/**
- * Created by Administrateur on 24/04/2018.
- */
-
 public class SharedPreferencesManager {
     private static SharedPreferencesManager sharedPreferencesManager;
     private SharedPreferences sharedPref;
-    public SharedPreferencesManager(Context context){
+
+    private SharedPreferencesManager(Context context){
         sharedPref = context.getSharedPreferences(context.getString(R.string.user_key), Context.MODE_PRIVATE);
     }
+
     public static SharedPreferencesManager getInstance(Context context){
         if(sharedPreferencesManager == null){
             sharedPreferencesManager = new SharedPreferencesManager(context);

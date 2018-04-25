@@ -32,7 +32,8 @@
         <activity android:name=".activity.tuto.TutoExplainActivity" />
         <activity android:name=".activity.tuto.TutoSchoolActivity" />
         <activity android:name=".activity.tuto.TutoLocationActivity" />
-        <activity android:name=".activity.tuto.TutoEndActivity"></activity>
+        <activity android:name=".activity.tuto.TutoEndActivity" />
+        <activity android:name=".activity.RegisterActivity"></activity>
     </application>
 
 </manifest>
