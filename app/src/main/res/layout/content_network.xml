@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="studentnetwork.android.com.studentnetwork.activity.NetworkActivity"
+    tools:context="studentnetwork.android.com.studentnetwork.activity.core.NetworkActivity"
     android:background="@color/colorPrimaryBlue">
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import studentnetwork.android.com.studentnetwork.R;
+import studentnetwork.android.com.studentnetwork.activity.core.NetworkActivity;
 import studentnetwork.android.com.studentnetwork.activity.tuto.TutoActivity;
 import studentnetwork.android.com.studentnetwork.bll.UserLoginService;
 import studentnetwork.android.com.studentnetwork.bo.User;

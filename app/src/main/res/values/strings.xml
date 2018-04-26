@@ -49,5 +49,8 @@
     <string name="finish">C\'est fini !</string>
     <string name="welcome_student">Bienvenue sur ton réseau étudiant.</string>
     <string name="finish_tuto_sentence">Découvre et propose tes bons plans, services, sorties, loisirs...</string>
+    <string name="community">Communauté</string>
+    <string name="tips">Bons plans</string>
+    <string name="settings">Réglages</string>
 
 </resources>

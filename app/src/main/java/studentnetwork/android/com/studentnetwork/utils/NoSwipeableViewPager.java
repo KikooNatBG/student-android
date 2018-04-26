@@ -12,12 +12,10 @@ import android.view.MotionEvent;
 public class NoSwipeableViewPager extends ViewPager {
     public NoSwipeableViewPager(Context context) {
         super(context);
-       // setMyScroller();
     }
 
     public NoSwipeableViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
-       // setMyScroller();
     }
 
     @Override
