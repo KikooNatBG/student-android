@@ -19,13 +19,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.activity.LoginActivity;
+import studentnetwork.android.com.studentnetwork.bll.ContentService;
+import studentnetwork.android.com.studentnetwork.bo.Content;
 import studentnetwork.android.com.studentnetwork.bo.User;
 import studentnetwork.android.com.studentnetwork.data.SharedPreferencesManager;
 
 public class NetworkActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ContentService.ContentListener {
 
     private static final String TAG = "NetworkActivity => ";
     private DrawerLayout drawer;
@@ -56,7 +60,7 @@ public class NetworkActivity extends AppCompatActivity
         txtIdentity = (TextView) menuHeaderView.findViewById(R.id.menu_name);
         txtMail = (TextView) menuHeaderView.findViewById(R.id.menu_mail);
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
+        bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation_bar);
 
         bottomNavigationView.setOnNavigationItemSelectedListener
@@ -163,5 +167,15 @@ public class NetworkActivity extends AppCompatActivity
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onContentResult(ArrayList<Content> contents, String fragment) {
+
+    }
+
+    @Override
+    public void onContentResultByType(ArrayList<Content> contents, String fragment) {
+
     }
 }

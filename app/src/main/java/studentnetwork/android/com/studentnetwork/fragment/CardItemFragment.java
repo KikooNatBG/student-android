@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import studentnetwork.android.com.studentnetwork.R;
-import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent;
-import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent.DummyItem;
+import studentnetwork.android.com.studentnetwork.bo.Content;
+import studentnetwork.android.com.studentnetwork.fragment.dummy.CommunityCardContents;
+
 
 import java.util.List;
 
@@ -41,9 +42,9 @@ public class CardItemFragment extends Fragment {
     @SuppressWarnings("unused")
     public static CardItemFragment newInstance(int columnCount) {
         CardItemFragment fragment = new CardItemFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putInt(ARG_COLUMN_COUNT, columnCount);
+//        fragment.setArguments(args);
         return fragment;
     }
 
@@ -70,7 +71,7 @@ public class CardItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyCardItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+          //  recyclerView.setAdapter(new MyCardItemRecyclerViewAdapter(CommunityCardContents.ITEMS, mListener));
         }
         return view;
     }
@@ -105,6 +106,6 @@ public class CardItemFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Content content);
     }
 }

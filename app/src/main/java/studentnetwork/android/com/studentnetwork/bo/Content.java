@@ -2,6 +2,8 @@ package studentnetwork.android.com.studentnetwork.bo;
 
 import java.util.Date;
 
+import studentnetwork.android.com.studentnetwork.bo.enums.ContentType;
+
 /**
  * Created by Administrateur on 23/04/2018.
  */
@@ -9,7 +11,7 @@ import java.util.Date;
 public class Content {
     private int id;
     private String description;
-    private Enum type;
+    private ContentType type;
     private Date time;
     private Date startTime;
     private Date endTime;
@@ -20,7 +22,7 @@ public class Content {
     public Content() {
     }
 
-    public Content(int id, String description, Enum type, Date time, Date startTime, Date endTime, Date updatedTime, Location location, Content parent) {
+    public Content(int id, String description, ContentType type, Date time, Date startTime, Date endTime, Date updatedTime, Location location, Content parent) {
         this.id = id;
         this.description = description;
         this.type = type;
@@ -48,11 +50,11 @@ public class Content {
         this.description = description;
     }
 
-    public Enum getType() {
+    public ContentType getType() {
         return type;
     }
 
-    public void setType(Enum type) {
+    public void setType(ContentType type) {
         this.type = type;
     }
 
