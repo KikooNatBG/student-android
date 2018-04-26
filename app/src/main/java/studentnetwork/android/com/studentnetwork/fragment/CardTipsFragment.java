@@ -22,7 +22,7 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class CardGoodDealsFragment extends Fragment {
+public class CardTipsFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -34,13 +34,13 @@ public class CardGoodDealsFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public CardGoodDealsFragment() {
+    public CardTipsFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static CardGoodDealsFragment newInstance(int columnCount) {
-        CardGoodDealsFragment fragment = new CardGoodDealsFragment();
+    public static CardTipsFragment newInstance(int columnCount) {
+        CardTipsFragment fragment = new CardTipsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -59,7 +59,7 @@ public class CardGoodDealsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_card_good_deals_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_cardtips_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -70,7 +70,7 @@ public class CardGoodDealsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyCardGoodDealsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyCardTipsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
         return view;
     }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import studentnetwork.android.com.studentnetwork.R;
-import studentnetwork.android.com.studentnetwork.fragment.CardGoodDealsFragment.OnListFragmentInteractionListener;
+import studentnetwork.android.com.studentnetwork.fragment.CardTipsFragment.OnListFragmentInteractionListener;
 import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent.DummyItem;
 
 import java.util.List;
@@ -17,12 +17,12 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyCardGoodDealsRecyclerViewAdapter extends RecyclerView.Adapter<MyCardGoodDealsRecyclerViewAdapter.ViewHolder> {
+public class MyCardTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyCardTipsRecyclerViewAdapter.ViewHolder> {
 
     private final List<DummyItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyCardGoodDealsRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyCardTipsRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -30,7 +30,7 @@ public class MyCardGoodDealsRecyclerViewAdapter extends RecyclerView.Adapter<MyC
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_card_good_deals, parent, false);
+                .inflate(R.layout.fragment_cardtips, parent, false);
         return new ViewHolder(view);
     }
 
