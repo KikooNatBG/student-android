@@ -10,7 +10,6 @@ public class User {
     private String email;
     private String password;
     private String aboutMe;
-    private Date registerDate;
     private Date birthday;
     private String pictureUrl;
     private String smallPictureUrl;
@@ -21,18 +20,18 @@ public class User {
     private List<UserLink> userLinkList;
     private List<School> schools;
     private List<Content> contentList;
+    private Location location;
 
     public User() {
     }
 
-    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date registerDate, Date birthday, String pictureUrl, String smallPictureUrl, String largePictureUrl, String userType, String gender) {
+    public User(int id, String firstName, String lastName, String email, String password, String aboutMe, Date birthday, String pictureUrl, String smallPictureUrl, String largePictureUrl, String userType, String gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.aboutMe = aboutMe;
-        this.registerDate = registerDate;
         this.birthday = birthday;
         this.pictureUrl = pictureUrl;
         this.smallPictureUrl = smallPictureUrl;
@@ -87,14 +86,6 @@ public class User {
 
     public void setAboutMe(String aboutMe) {
         this.aboutMe = aboutMe;
-    }
-
-    public Date getRegisterDate() {
-        return registerDate;
-    }
-
-    public void setRegisterDate(Date registerDate) {
-        this.registerDate = registerDate;
     }
 
     public Date getBirthday() {
@@ -186,7 +177,6 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", aboutMe='" + aboutMe + '\'' +
-                ", registerDate=" + registerDate +
                 ", birthday=" + birthday +
                 ", pictureUrl='" + pictureUrl + '\'' +
                 ", smallPictureUrl='" + smallPictureUrl + '\'' +
@@ -197,6 +187,15 @@ public class User {
                 ", userLinkList=" + userLinkList +
                 ", schools=" + schools +
                 ", contentList=" + contentList +
+                ", location=" + location +
                 '}';
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 }

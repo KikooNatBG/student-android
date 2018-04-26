@@ -1,9 +1,5 @@
 package studentnetwork.android.com.studentnetwork.bo;
 
-/**
- * Created by Administrateur on 23/04/2018.
- */
-
 public class Location {
     private int id;
     private String city;
@@ -11,6 +7,12 @@ public class Location {
     private String zipCode;
 
     public Location() {
+    }
+
+    public Location(String city, String street, String zipCode) {
+        this.city = city;
+        this.street = street;
+        this.zipCode = zipCode;
     }
 
     public Location(int id, String city, String street, String zipCode) {

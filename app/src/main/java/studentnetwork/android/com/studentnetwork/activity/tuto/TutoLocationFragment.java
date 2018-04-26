@@ -1,25 +1,20 @@
 package studentnetwork.android.com.studentnetwork.activity.tuto;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import studentnetwork.android.com.studentnetwork.R;
 
 public class TutoLocationFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String TAG = "TutoLocationFragment";
 
     public TutoLocationFragment() {
     }
 
-    /**
-     * Returns a new instance of this fragment for the given section
-     * number.
-     */
     public static TutoLocationFragment newInstance(int sectionNumber) {
         TutoLocationFragment fragment = new TutoLocationFragment();
         Bundle args = new Bundle();
@@ -33,9 +28,6 @@ public class TutoLocationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tuto_location_fragment, container, false);
-//        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-//        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
         return rootView;
     }
-
 }
