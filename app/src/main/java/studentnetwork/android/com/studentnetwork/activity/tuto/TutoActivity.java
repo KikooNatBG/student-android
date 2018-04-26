@@ -33,6 +33,7 @@ import studentnetwork.android.com.studentnetwork.activity.NetworkActivity;
 import studentnetwork.android.com.studentnetwork.activity.RegisterActivity;
 import studentnetwork.android.com.studentnetwork.bll.SchoolService;
 import studentnetwork.android.com.studentnetwork.bo.School;
+import studentnetwork.android.com.studentnetwork.utils.NoSwipeableViewPager;
 
 public class TutoActivity extends AppCompatActivity implements SchoolService.SchoolListener {
 
@@ -79,7 +80,7 @@ public class TutoActivity extends AppCompatActivity implements SchoolService.Sch
         two = (ImageView) findViewById(R.id.intro_indicator_2);
         three = (ImageView) findViewById(R.id.intro_indicator_3);
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (NoSwipeableViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
