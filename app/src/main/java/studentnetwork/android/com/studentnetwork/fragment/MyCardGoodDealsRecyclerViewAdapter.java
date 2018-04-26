@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.fragment.CardGoodDealsFragment.OnListFragmentInteractionListener;
 import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent.DummyItem;
 
