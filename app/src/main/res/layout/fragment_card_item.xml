@@ -17,55 +17,61 @@
      -->
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="340dp"
+        android:layout_height="190dp"
+        android:divider=""
+        android:showDividers="middle"
         android:orientation="vertical">
 
         <!-- Les CardView agissent comme des FrameLayout,
          pour avoir une organisation verticale nous devons
          donc rajouter un LinearLayout -->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="340dp"
+            android:layout_height="120dp"
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/userImage"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            app:srcCompat="@drawable/user_default" />
+            <ImageView
+                android:id="@+id/userImage"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/user_default" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="240dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/userName"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="?android:selectableItemBackground"
                     android:paddingLeft="10dp"
                     tools:text="Prénom Nom"
-                    android:textColor="#333"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="10dp" />
                 <TextView
                     android:id="@+id/serviceName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
                     tools:text="Service"
                     />
                 <TextView
                     android:id="@+id/serviceDescription"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    tools:text="Service description"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:maxLines="3"
+                    android:textSize="10dp"
+                    tools:text="Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description Service description "
                     />
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <RatingBar
                         android:id="@+id/serviceRate"
@@ -74,16 +80,81 @@
                         android:layout_height="wrap_content"
                         android:padding="10dp"
                         />
-
+                    <ImageView
+                        android:id="@+id/serviceCityIcone"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center_vertical"
+                        app:srcCompat="@drawable/ic_location_on"
+                        />
                     <TextView
                         android:id="@+id/serviceCity"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:layout_gravity="center_vertical"
                         tools:text="City"
                         />
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:id="@+id/serviceCreationDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:text="Il y a -- min"/>
+
+                <ImageView
+                    android:id="@+id/serviceIcone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    app:srcCompat="@drawable/ic_action_find" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/addComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_add"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/put_comment"/>
+            <Space
+                android:layout_width="30dp"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_add"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:textSize="10dp"
+                android:layout_gravity="center_vertical"
+                android:text="@string/contact"/>
+
         </LinearLayout>
     </LinearLayout>
 
