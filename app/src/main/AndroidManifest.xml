@@ -32,9 +32,14 @@
             android:name=".activity.LoginActivity"
             android:label="@string/connection"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.tuto.TutoActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 
