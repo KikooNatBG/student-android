@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import studentnetwork.android.com.studentnetwork.R;
-import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent;
-import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent.DummyItem;
+import studentnetwork.android.com.studentnetwork.bo.Content;
+import studentnetwork.android.com.studentnetwork.fragment.dummy.CommunityCardContents;
 
 import java.util.List;
 
@@ -70,7 +70,7 @@ public class CardTipsFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyCardTipsRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyCardTipsRecyclerViewAdapter(CommunityCardContents.ITEMS, mListener));
         }
         return view;
     }
@@ -105,6 +105,6 @@ public class CardTipsFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Content item);
     }
 }

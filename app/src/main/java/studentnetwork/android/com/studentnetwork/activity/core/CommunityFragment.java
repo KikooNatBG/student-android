@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.activity.tuto.TutoEndFragment;
+import studentnetwork.android.com.studentnetwork.bll.ContentService;
 
 /**
  * Created by Administrateur on 26/04/2018.
@@ -18,6 +19,7 @@ import studentnetwork.android.com.studentnetwork.activity.tuto.TutoEndFragment;
 
 public class CommunityFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
+    public static final String FRAGMENT_NAME = "Community" ;
 
     public static CommunityFragment newInstance() {
         CommunityFragment fragment = new CommunityFragment();
@@ -38,8 +40,8 @@ public class CommunityFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.community_fragment, container, false);
-//        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-//        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+        ContentService contentService = new ContentService(getActivity(), FRAGMENT_NAME);
+        contentService.getContents(getActivity());
         return rootView;
     }
 }

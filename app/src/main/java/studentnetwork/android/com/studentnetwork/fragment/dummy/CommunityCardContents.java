@@ -18,7 +18,7 @@ public class CommunityCardContents {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<Content> ITEMS = new ArrayList<Content>();
+    public static List<Content> ITEMS = new ArrayList<Content>();
 
     /**
      * A map of sample (dummy) items, by ID.

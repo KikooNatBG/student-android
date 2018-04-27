@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-
     app:cardBackgroundColor="@android:color/white"
     app:cardCornerRadius="2dp"
     app:cardElevation="2dp">
@@ -19,7 +18,8 @@
     <LinearLayout
         android:layout_width="340dp"
         android:layout_height="190dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <!-- Les CardView agissent comme des FrameLayout,
          pour avoir une organisation verticale nous devons
@@ -34,7 +34,8 @@
                 android:id="@+id/userImage"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                app:srcCompat="@drawable/user_default" />
+                app:srcCompat="@drawable/user_default"
+                android:layout_marginRight="10dp"/>
 
             <LinearLayout
                 android:layout_width="240dp"

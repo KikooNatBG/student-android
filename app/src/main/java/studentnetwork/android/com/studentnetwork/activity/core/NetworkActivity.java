@@ -11,22 +11,33 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.toptoche.searchablespinnerlibrary.SearchableSpinner;
 
 import java.util.ArrayList;
 
 import studentnetwork.android.com.studentnetwork.R;
 import studentnetwork.android.com.studentnetwork.activity.LoginActivity;
+import studentnetwork.android.com.studentnetwork.activity.tuto.TutoSchoolFragment;
 import studentnetwork.android.com.studentnetwork.bll.ContentService;
 import studentnetwork.android.com.studentnetwork.bo.Content;
+import studentnetwork.android.com.studentnetwork.bo.School;
 import studentnetwork.android.com.studentnetwork.bo.User;
 import studentnetwork.android.com.studentnetwork.data.SharedPreferencesManager;
+import studentnetwork.android.com.studentnetwork.fragment.CardItemFragment;
+import studentnetwork.android.com.studentnetwork.fragment.MyCardItemRecyclerViewAdapter;
+import studentnetwork.android.com.studentnetwork.fragment.dummy.CommunityCardContents;
 
 public class NetworkActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, ContentService.ContentListener {
@@ -39,6 +50,7 @@ public class NetworkActivity extends AppCompatActivity
     private TextView txtIdentity;
     private TextView txtMail;
     private BottomNavigationView bottomNavigationView;
+   // private RecyclerView rv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +71,10 @@ public class NetworkActivity extends AppCompatActivity
         picture = (ImageView) menuHeaderView.findViewById(R.id.menu_image);
         txtIdentity = (TextView) menuHeaderView.findViewById(R.id.menu_name);
         txtMail = (TextView) menuHeaderView.findViewById(R.id.menu_mail);
+//        rv = (RecyclerView) findViewById(R.id.recycler_card_view);
+//
+//        LinearLayoutManager llm = new LinearLayoutManager(getBaseContext());
+//        rv.setLayoutManager(llm);
 
         bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation_bar);
@@ -145,20 +161,7 @@ public class NetworkActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        } else if (id == R.id.nav_exit){
+         if (id == R.id.nav_exit){
             SharedPreferencesManager.getInstance(this).setUser(null);
             Intent i = new Intent(NetworkActivity.this, LoginActivity.class);
             startActivity(i);
@@ -171,7 +174,29 @@ public class NetworkActivity extends AppCompatActivity
 
     @Override
     public void onContentResult(ArrayList<Content> contents, String fragment) {
+        Log.d(TAG, contents.toString());
+        if (fragment != null) {
+            switch (fragment) {
+                case CommunityFragment.FRAGMENT_NAME:
+                    final SearchableSpinner spinner = (SearchableSpinner) findViewById(R.id.school_spinner);
+                    MyCardItemRecyclerViewAdapter adapter = new MyCardItemRecyclerViewAdapter(contents,
+                            new CardItemFragment.OnListFragmentInteractionListener() {
+                                @Override
+                                public void onListFragmentInteraction(Content content) {
+                                    Log.i(TAG,"Touch");
+                                }
+                            }, getApplicationContext());
+                    CommunityCardContents.ITEMS = contents;
+                    //adapter.setDropDownViewResource(R.layout.searchable_spinner);
+                    //spinner.setAdapter(adapter);
+                    //spinner.setTitle("Sélectionner votre école");
+                    //spinner.setPositiveButton("OK");
 
+                    break;
+                default:
+                    Log.d(TAG, "Fragment inconnu");
+            }
+        }
     }
 
     @Override

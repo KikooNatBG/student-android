@@ -42,9 +42,9 @@ public class CardItemFragment extends Fragment {
     @SuppressWarnings("unused")
     public static CardItemFragment newInstance(int columnCount) {
         CardItemFragment fragment = new CardItemFragment();
-//        Bundle args = new Bundle();
-//        args.putInt(ARG_COLUMN_COUNT, columnCount);
-//        fragment.setArguments(args);
+        Bundle args = new Bundle();
+        args.putInt(ARG_COLUMN_COUNT, columnCount);
+        fragment.setArguments(args);
         return fragment;
     }
 
@@ -71,7 +71,7 @@ public class CardItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-          //  recyclerView.setAdapter(new MyCardItemRecyclerViewAdapter(CommunityCardContents.ITEMS, mListener));
+            recyclerView.setAdapter(new MyCardItemRecyclerViewAdapter(CommunityCardContents.ITEMS, mListener, context));
         }
         return view;
     }

@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import studentnetwork.android.com.studentnetwork.R;
+import studentnetwork.android.com.studentnetwork.bo.Content;
 import studentnetwork.android.com.studentnetwork.fragment.CardTipsFragment.OnListFragmentInteractionListener;
-import studentnetwork.android.com.studentnetwork.fragment.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Content} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyCardTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyCardTipsRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Content> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyCardTipsRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyCardTipsRecyclerViewAdapter(List<Content> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,9 +36,9 @@ public class MyCardTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyCardTi
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+//        holder.mItem = mValues.get(position);
+//        holder.mIdView.setText(mValues.get(position).id);
+//        holder.mContentView.setText(mValues.get(position).content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +61,7 @@ public class MyCardTipsRecyclerViewAdapter extends RecyclerView.Adapter<MyCardTi
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Content mItem;
 
         public ViewHolder(View view) {
             super(view);
